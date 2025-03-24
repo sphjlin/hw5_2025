@@ -1,0 +1,188 @@
+/* 1. Animate the Logo */
+@keyframes mymove {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: mymove 5s;
+}
+
+/* 2. Style the Body */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* 3. Flex Properties for Header and Nav Links */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 4. Link Styling Across Visits */
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+a:link, a:visited {
+    color: blue;
+}
+
+/* 5. Style Header Elements in Card */
+.card>header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0px;
+    border-radius: 50px 50px 0 0;
+}
+
+/* Addtional .card setting to overwrite starter.css */
+.card {
+    border-radius: 50px 50px 0 0;
+}
+
+/* 6. Gallery and Pricing Flex Properties */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* 7. Edit the css for the card class to match our example */
+.card {
+    flex-basis: 450px;
+}
+
+/* 8. Edit the css for the pricing class to match our example. */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* 9. Style the images in the gallery class. */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* 10. Use flex for gallery class */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+/* Media Query for screens >= 900px */
+@media screen and (min-width: 900px) {
+
+    /* 11. Edit the css for the header tag and the nav_links class */
+    header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    /* horizontal now */
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* 12. Edit the css for the pricing and card classes to match our example. */
+    /* Adjust .card classes */
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* Adjust .pricing classes */
+    .pricing {
+        display: flex;
+        align-items: center;
+    }
+
+    /* 13. Keep the first header on the top while scrolling */
+    body>header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+    }
+}
+
+/* 14. Media Query for if prefers-reduced-motion is selected */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+        /* This stops the animation of the logo */
+    }
+}
+
+/* Media Query for print view */
+@media print {
+
+    /* 15. Change the font on your body to Arial with a backup value of  Helvetica */
+    /* 16. Background image removed */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+    #logo {
+        animation: none;
+    }
+
+    /* 17. Edit the nav/nav_links elements */
+    nav {
+        width: 100%;
+    }
+
+    .nav_links {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    /* 18. Edit the pricing class  */
+    .pricing {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-end;
+        /* Aligns items to the bottom */
+    }
+
+    /* 19. The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px. */
+    .card {
+        flex-basis: 325px;
+        border: 2px solid #45ADDD;
+    }
+
+    /* 20. No part of the gallery should be visible. */
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* 21. Without using list-style-type add the thumbs up entity as shown in the cards */
+    .card ul li:nth-child(2)::after {
+        content: "\1F44D";
+    }
+
+    /* not necessary, but is here to match the picture given */
+    footer{
+        page-break-before: always;
+    }
+
+}
